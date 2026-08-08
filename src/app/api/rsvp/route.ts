@@ -1,11 +1,19 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { supabase } from '@/lib/supabase';
+import { getSupabase } from '@/lib/supabase';
 
 /**
  * POST /api/rsvp — Submit an RSVP with wishes.
  */
 export async function POST(request: NextRequest) {
   try {
+    const supabase = getSupabase();
+    if (!supabase) {
+      return NextResponse.json(
+        { error: 'Database not configured. Please set Supabase environment variables.' },
+        { status: 503 }
+      );
+    }
+
     const body = await request.json();
     const { name, attendance, guests, wishes } = body;
 
@@ -43,3 +51,4 @@ export async function POST(request: NextRequest) {
     return NextResponse.json({ error: 'Invalid request' }, { status: 400 });
   }
 }
+

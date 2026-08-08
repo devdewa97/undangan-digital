@@ -1,5 +1,5 @@
 import { NextResponse } from 'next/server';
-import { supabase } from '@/lib/supabase';
+import { getSupabase } from '@/lib/supabase';
 
 /**
  * GET /api/wishes — Fetch all wishes, newest first.
@@ -7,6 +7,14 @@ import { supabase } from '@/lib/supabase';
  */
 export async function GET(request: Request) {
   try {
+    const supabase = getSupabase();
+    if (!supabase) {
+      return NextResponse.json(
+        { wishes: [], total: 0, page: 1, limit: 50, error: 'Database not configured' },
+        { status: 200 }
+      );
+    }
+
     const { searchParams } = new URL(request.url);
     const page = parseInt(searchParams.get('page') || '1');
     const limit = Math.min(parseInt(searchParams.get('limit') || '50'), 100);
@@ -33,3 +41,4 @@ export async function GET(request: Request) {
     return NextResponse.json({ error: 'Failed to fetch wishes' }, { status: 500 });
   }
 }
+
