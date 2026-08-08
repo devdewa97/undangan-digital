@@ -117,94 +117,95 @@ export default function OpeningCover({ guestName, isOpen, onOpen }: OpeningCover
           <Sparkles count={18} />
 
           {/* ── Content ──────────────────────────────────────── */}
-          <div className="relative z-10 flex flex-col items-center text-center px-6 max-w-lg">
-            {/* Top decorative text */}
-            <motion.p
-              className="font-sans text-xs tracking-[0.35em] uppercase text-[#C8A96A] mb-8"
-              initial={{ opacity: 0, y: -20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.3 }}
-            >
-              The Wedding of
-            </motion.p>
+          <div className="absolute inset-0 z-10 flex flex-col items-center justify-between py-[12vh] px-6">
+            
+            {/* ── TOP SECTION ── */}
+            <div className="flex flex-col items-center w-full max-w-lg">
+              {/* Top decorative text */}
+              <motion.p
+                className="font-sans text-[10px] md:text-xs tracking-[0.35em] uppercase text-[#C8A96A] mb-4 md:mb-6"
+                initial={{ opacity: 0, y: -20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.3 }}
+              >
+                The Wedding of
+              </motion.p>
+            </div>
 
-            {/* Monogram / Couple names */}
-            <motion.div
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 1, delay: 0.5, ease: [0.22, 1, 0.36, 1] }}
-              style={{ textShadow: '0 2px 12px rgba(253,251,248,0.8)' }}
-            >
-              <h1 className="font-serif text-5xl md:text-7xl font-semibold text-[#2C2C2C] leading-tight drop-shadow-sm">
-                {couple.groom.firstName}
-              </h1>
-              <p className="font-script text-3xl md:text-4xl text-[#C8A96A] my-2">
-                &amp;
-              </p>
-              <h1 className="font-serif text-5xl md:text-7xl font-semibold text-[#2C2C2C] leading-tight drop-shadow-sm">
-                {couple.bride.firstName}
-              </h1>
-            </motion.div>
+            {/* ── MIDDLE SECTION (Empty for Faces) ── */}
+            <div className="flex-1" />
 
-            {/* Date */}
-            <motion.p
-              className="font-sans text-sm tracking-[0.2em] text-[#4A4A4A] mt-6 mb-10"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.8, delay: 0.9 }}
-            >
-              22 . 09 . 2026
-            </motion.p>
+            {/* ── BOTTOM SECTION ── */}
+            <div className="flex flex-col items-center w-full max-w-lg mb-4 md:mb-2">
+              {/* Monogram / Couple names (1 line) */}
+              <motion.div
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 1, delay: 0.5, ease: [0.22, 1, 0.36, 1] }}
+                style={{ textShadow: '0 2px 12px rgba(253,251,248,0.8)' }}
+                className="flex items-center justify-center gap-3 md:gap-5"
+              >
+                <h1 className="font-serif text-[42px] md:text-6xl font-semibold text-[#2C2C2C] leading-none drop-shadow-sm">
+                  {couple.groom.firstName}
+                </h1>
+                <p className="font-script text-2xl md:text-4xl text-[#C8A96A] mt-2">
+                  &amp;
+                </p>
+                <h1 className="font-serif text-[42px] md:text-6xl font-semibold text-[#2C2C2C] leading-none drop-shadow-sm">
+                  {couple.bride.firstName}
+                </h1>
+              </motion.div>
 
-            {/* Gold divider line */}
-            <motion.div
-              className="w-16 h-px bg-gradient-to-r from-transparent via-[#C8A96A] to-transparent mb-10"
-              initial={{ scaleX: 0 }}
-              animate={{ scaleX: 1 }}
-              transition={{ duration: 0.8, delay: 1.1 }}
-            />
+              {/* Date */}
+              <motion.p
+                className="font-sans text-[11px] md:text-sm tracking-[0.2em] text-[#4A4A4A] mt-3 md:mt-4 mb-4 md:mb-6"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0.8, delay: 0.9 }}
+              >
+                22 . 09 . 2026
+              </motion.p>
 
-            {/* Guest name */}
-            <motion.div
-              className="mb-10"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 1.3 }}
-            >
-              <p className="font-sans text-xs tracking-[0.3em] uppercase text-[#4A4A4A] mb-2">
-                Dear
-              </p>
-              <p className="font-serif text-2xl md:text-3xl text-[#2C2C2C] font-medium">
-                {guestName || 'Tamu Undangan'}
-              </p>
-            </motion.div>
+              {/* Gold divider line */}
+              <motion.div
+                className="w-12 md:w-16 h-px bg-gradient-to-r from-transparent via-[#C8A96A] to-transparent mb-5 md:mb-6"
+                initial={{ scaleX: 0 }}
+                animate={{ scaleX: 1 }}
+                transition={{ duration: 0.8, delay: 1.1 }}
+              />
 
-            {/* Open button */}
-            <motion.button
-              onClick={onOpen}
-              className="group relative inline-flex items-center gap-3 px-8 py-4 rounded-full bg-gradient-to-r from-[#B8964F] via-[#C8A96A] to-[#D4BA82] text-white font-sans text-sm font-medium tracking-wider overflow-hidden cursor-pointer"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 1.6 }}
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              {/* Shimmer */}
-              <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/25 to-transparent animate-shimmer bg-[length:200%_100%]" />
-              <IoMailOpenOutline className="text-lg relative z-10" />
-              <span className="relative z-10">Buka Undangan</span>
-            </motion.button>
+              {/* Guest name */}
+              <motion.div
+                className="mb-6 md:mb-8 text-center"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 1.3 }}
+              >
+                <p className="font-sans text-[10px] md:text-[11px] tracking-[0.3em] uppercase text-[#4A4A4A] mb-1.5 md:mb-2">
+                  Dear
+                </p>
+                <p className="font-serif text-lg md:text-2xl text-[#2C2C2C] font-medium px-4">
+                  {guestName || 'Tamu Undangan'}
+                </p>
+              </motion.div>
+
+              {/* Open button */}
+              <motion.button
+                onClick={onOpen}
+                className="group relative inline-flex items-center gap-2 md:gap-3 px-6 md:px-8 py-2.5 md:py-3 rounded-full bg-gradient-to-r from-[#B8964F] via-[#C8A96A] to-[#D4BA82] text-white font-sans text-xs md:text-sm font-medium tracking-wider overflow-hidden cursor-pointer shadow-lg shadow-[#C8A96A]/20"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 1.6 }}
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                {/* Shimmer */}
+                <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/25 to-transparent animate-shimmer bg-[length:200%_100%]" />
+                <IoMailOpenOutline className="text-base md:text-lg relative z-10" />
+                <span className="relative z-10">Buka Undangan</span>
+              </motion.button>
+            </div>
           </div>
-
-          {/* Bottom decorative text */}
-          <motion.p
-            className="absolute bottom-8 left-1/2 -translate-x-1/2 font-sans text-[10px] tracking-[0.2em] text-[#C8A96A]/40 uppercase z-10"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.8, delay: 2 }}
-          >
-            Scroll down after opening
-          </motion.p>
         </motion.div>
       )}
     </AnimatePresence>
