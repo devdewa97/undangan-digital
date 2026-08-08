@@ -1,0 +1,196 @@
+@import "tailwindcss";
+
+/* ============================================================
+   Wedding Invitation — Design System
+   Premium luxury aesthetic with soft cream + champagne gold
+   ============================================================ */
+
+/* ── Google Fonts ─────────────────────────────────────────── */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=Great+Vibes&display=swap');
+
+/* ── Tailwind v4 Theme — only simple tokens ──────────────── */
+@theme {
+  --color-ivory: #FDFBF8;
+  --color-cream: #FAF7F2;
+  --color-beige: #F5F0E8;
+  --color-beige-dark: #EDE5D8;
+  --color-gold: #C8A96A;
+  --color-gold-light: #D4BA82;
+  --color-gold-dark: #B8964F;
+  --color-charcoal: #2C2C2C;
+  --color-charcoal-light: #4A4A4A;
+  --color-charcoal-muted: #6B6B6B;
+
+  --font-serif: 'Playfair Display', Georgia, 'Times New Roman', serif;
+  --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  --font-script: 'Great Vibes', cursive;
+
+  --animate-float: float 6s ease-in-out infinite;
+  --animate-float-slow: float 8s ease-in-out infinite;
+  --animate-shimmer: shimmer 2.5s ease-in-out infinite;
+  --animate-sparkle: sparkle 2s ease-in-out infinite;
+  --animate-petal-fall: petalFall 12s linear infinite;
+  --animate-pulse-gold: pulseGold 3s ease-in-out infinite;
+}
+
+/* ── CSS Custom Properties (non-theme) ───────────────────── */
+:root {
+  --soft-gold-border: rgba(200, 169, 106, 0.3);
+  --glass-bg: rgba(253, 251, 248, 0.7);
+  --glass-border: rgba(200, 169, 106, 0.15);
+  --overlay-bg: rgba(44, 44, 44, 0.6);
+}
+
+/* ── Base Styles ─────────────────────────────────────────── */
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: var(--font-sans);
+  color: var(--color-charcoal);
+  background-color: var(--color-ivory);
+  overflow-x: hidden;
+  line-height: 1.7;
+}
+
+/* Background texture now handled by WeddingBackground component */
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-beige);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-gold);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-gold-dark);
+}
+
+/* ── Typography Utilities ────────────────────────────────── */
+.font-serif {
+  font-family: var(--font-serif);
+}
+
+.font-script {
+  font-family: var(--font-script);
+}
+
+.text-gold-gradient {
+  background: linear-gradient(135deg, var(--color-gold-dark), var(--color-gold), var(--color-gold-light));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ── Glass Card ──────────────────────────────────────────── */
+.glass-card {
+  background: var(--glass-bg);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--glass-border);
+  box-shadow:
+    0 4px 30px rgba(200, 169, 106, 0.06),
+    0 1px 3px rgba(0, 0, 0, 0.04),
+    inset 0 1px 0 rgba(255, 255, 255, 0.6);
+}
+
+/* ── Premium Shadows ─────────────────────────────────────── */
+.shadow-luxury {
+  box-shadow:
+    0 10px 40px rgba(200, 169, 106, 0.08),
+    0 2px 10px rgba(0, 0, 0, 0.04);
+}
+
+.shadow-luxury-lg {
+  box-shadow:
+    0 20px 60px rgba(200, 169, 106, 0.12),
+    0 4px 20px rgba(0, 0, 0, 0.06);
+}
+
+/* ── Keyframes ───────────────────────────────────────────── */
+@keyframes float {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-20px) rotate(2deg); }
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+
+@keyframes sparkle {
+  0%, 100% { opacity: 0; transform: scale(0) rotate(0deg); }
+  50% { opacity: 1; transform: scale(1) rotate(180deg); }
+}
+
+@keyframes petalFall {
+  0% {
+    transform: translateY(-10vh) translateX(0) rotate(0deg);
+    opacity: 0;
+  }
+  10% { opacity: 0.6; }
+  90% { opacity: 0.6; }
+  100% {
+    transform: translateY(110vh) translateX(100px) rotate(720deg);
+    opacity: 0;
+  }
+}
+
+@keyframes pulseGold {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(200, 169, 106, 0.2);
+  }
+  50% {
+    box-shadow: 0 0 40px rgba(200, 169, 106, 0.4);
+  }
+}
+
+/* ── Scroll Lock (used by opening cover) ─────────────────── */
+body.scroll-locked {
+  overflow: hidden;
+  height: 100dvh;
+}
+
+/* ── Selection Color ─────────────────────────────────────── */
+::selection {
+  background: rgba(200, 169, 106, 0.25);
+  color: var(--color-charcoal);
+}
+
+/* ── Form Elements ───────────────────────────────────────── */
+input, textarea, select {
+  font-family: var(--font-sans);
+}
+
+input:focus, textarea:focus, select:focus {
+  outline: none;
+  border-color: var(--color-gold) !important;
+  box-shadow: 0 0 0 3px rgba(200, 169, 106, 0.15);
+}
+
+/* ── Section spacing ─────────────────────────────────────── */
+.section-padding {
+  padding: 5rem 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .section-padding {
+    padding: 7rem 2rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .section-padding {
+    padding: 8rem 2rem;
+  }
+}
