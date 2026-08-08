@@ -111,7 +111,7 @@ const config: WeddingConfig = {
     url: 'https://indraesah.vercel.app/',
     // Menggunakan parameter Cloudinary (w_1200,h_630,c_fill,f_jpg,q_auto) 
     // agar ukuran file < 300KB (syarat WhatsApp) dan dimensi sesuai standar Open Graph
-    ogImage: 'https://res.cloudinary.com/dmdl9p7do/image/upload/w_1200,h_630,c_fill,f_jpg,q_auto/v1786158826/ChatGPT_Image_8_Agu_2026_10.12.27_wtlbcn.png',
+    ogImage: 'https://res.cloudinary.com/dmdl9p7do/image/upload/v1786179053/thumbnail_wa_i5orlb.jpg',
   },
 };
 
