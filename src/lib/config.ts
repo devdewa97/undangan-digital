@@ -108,8 +108,8 @@ const config: WeddingConfig = {
     title: 'The Wedding of Indra & Esah',
     description:
       'Undangan Pernikahan Indra Saputra & Esah. 22 & 27 September 2026.',
-    url: 'https://indra-esah.vercel.app',
-    ogImage: '/images/og-image.jpg',
+    url: 'https://indraesah.vercel.app/',
+    ogImage: 'https://res.cloudinary.com/dmdl9p7do/image/upload/v1786158826/ChatGPT_Image_8_Agu_2026_10.12.27_wtlbcn.png',
   },
 };
 
