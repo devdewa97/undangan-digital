@@ -109,7 +109,9 @@ const config: WeddingConfig = {
     description:
       'Undangan Pernikahan Indra Saputra & Esah. 22 & 27 September 2026.',
     url: 'https://indraesah.vercel.app/',
-    ogImage: 'https://res.cloudinary.com/dmdl9p7do/image/upload/v1786158826/ChatGPT_Image_8_Agu_2026_10.12.27_wtlbcn.png',
+    // Menggunakan parameter Cloudinary (w_1200,h_630,c_fill,f_jpg,q_auto) 
+    // agar ukuran file < 300KB (syarat WhatsApp) dan dimensi sesuai standar Open Graph
+    ogImage: 'https://res.cloudinary.com/dmdl9p7do/image/upload/w_1200,h_630,c_fill,f_jpg,q_auto/v1786158826/ChatGPT_Image_8_Agu_2026_10.12.27_wtlbcn.png',
   },
 };
 
